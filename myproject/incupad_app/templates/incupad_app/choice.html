@@ -1,0 +1,20 @@
+{% extends 'incupad_app/home.html' %}
+{% load static %}
+{% block title %}Login Form{% endblock title %}
+{% block main-content %}
+
+
+
+
+<div class="choices" style="padding: 18px;">
+    <center style="margin-top: 100px;">
+        <a href="{% url 'register' %}"><img src="{% static 'incupad_app/images/Card-1.png' %}" alt=""></a>
+        
+        <a href="{% url 'update' %}"><img src="{% static 'incupad_app/images/Card-2.png' %}" alt=""></a>
+
+    </center>
+</div>
+
+
+
+{% endblock main-content %}

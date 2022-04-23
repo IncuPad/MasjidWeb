@@ -1,0 +1,92 @@
+{% extends 'incupad_app/home.html' %}
+{% load static %}
+{% block title %}Registration Form{% endblock title %}
+{% block main-content %}
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" integrity="sha512-nMNlpuaDPrqlEls3IX/Q56H36qvBASwb3ipuo3MxeWbsQB1881ox0cRv7UPTgBlriqoynt35KjEwgGUeUXIPnw==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+<style>
+    .active_btn{
+        width:346px;
+        height: 42px;
+        margin-right: -6px;
+        border: 1px solid rgb(73, 201, 23);
+    }
+        .btn1{
+        background-color: white;
+        color: #41A04A;
+        width:346px;
+        height: 42px;
+        margin-right: -6px;
+        border: 1px solid rgb(73, 201, 23);
+        transition: ease 0.4s;
+    }
+    .btn1:hover{
+        background-color: #41A04A;
+        color: white;
+    }
+
+    .txt{
+        margin-top: 120px;
+        margin-left: 30px;
+        font-family: 'SF Pro Display';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+    }
+    .select2-selection--single{
+    height: 40px!important;
+    }
+    .select2-selection__rendered{
+    line-height: 40px!important;
+    }
+    .select2-selection__arrow{
+    height: 40px!important;
+    }
+    @media(max-width : 1040px){
+    .btn1, .active_btn{
+        width:auto;
+        height: auto;
+        margin-right: -6px;
+
+    }
+}
+</style>
+
+<div style="margin-top:100px">
+
+    <h1 class="txt">Register Masjid  >>  Search Masjid</h1>
+
+    <center>
+    <div class="nav-bar">
+        <button class="active_btn" style="background: #41A04A;"><strong style="color: white;">Search & Select Masjid</strong></button>
+        <button class="btn1"><strong>Create Admin Profile</strong></button>
+        <button class="btn1"><strong>Set Prayer Times</strong></button>
+    </div>
+        <!-- <h4><b>Find Masjid</b></h4>
+               <form class="search-form">
+            <input type="text" placeholder="Search Masjid" name="masjid_location"
+                   class="search-field form-control" {% if masjid_location %} value="{{ masjid_location }}" {% endif %}> -->
+        <div class="mt-3">
+            <select name="masjid" id="select_masjid" class="form-control mb-4 search-field select_masjid" style="width:50%">
+                <option value>---Search Masjid---</option>
+                {% for i in data %}
+              <option value="{{ i.masjid_name }}">{{ i.masjid_name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </center>
+</div>
+
+
+
+
+
+{% endblock main-content %}
+
+{% block script %}
+<script>
+    $(document).ready(function(){
+        $('.select_masjid').select2();
+    });
+</script>
+{% endblock %}
